@@ -13,6 +13,13 @@ def liftAdd(a: Option[Int], b: Option[Int]): Option[Int] =
   yield
     x + y
 
+def product(a: List[Int], b: List[Int]): List[(Int, Int)] =
+  for
+    x <- a
+    y <- b
+  yield
+    (x, y)
+
 trait Showable[A]:
   extension(a: A)
     def show: String
@@ -36,3 +43,4 @@ given Showable[Box] with
   println(liftAdd(Some(3), None))
   println(Box("hello", 3).show)
   Box("bonjour", 5).showIO()
+  println(product(List(1,2,3), List(4,5,6)))
